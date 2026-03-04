@@ -1,0 +1,35 @@
+.card{
+    height: 96px;
+    margin: 0 16px;
+    padding: 24px;
+}
+.series{
+    display: flex;
+    align-items: center;
+}
+.smallNum{
+    font-family: 'Gilroy';
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: normal;
+    color: var(--color-primary);
+    float: right;
+}
+.bigNumber{
+    font-family: 'Space Mono', monospace;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-align: right;
+    color: var(--color-primary);
+    max-width: 200px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.dropdownIcon{
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: transparent;
+    color: var(--color-primary);
+}

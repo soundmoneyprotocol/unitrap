@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url('../public/fonts/Gilroy/GilroyExtraBold/font.woff2') format('woff2');
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; 
+  scroll-behavior: smooth;
+  font-family: 'Montserrat';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+body[data-theme='light'] {
+  --image-logo: url('../public/images/logo_l.svg');
+  
+  --color-primary: rgba(20, 16, 41, 0.8);
+  --color-alternate: #805da3;
+  --color-secondary: rgba(235, 239, 245, 0.6);
+  --color-tertiary: #fff;
+  --color-bg-primary: rgba(20, 16, 41, 0.12);
+  --color-bg-secondary: #fff;
+
+  --background-image-main: radial-gradient(circle at 50% 0, #fff, #f5f7fa 36%, #ebeff5 76%);
+
+  --icon-moon: url('https://s2.svgbox.net/hero-outline.svg?ic=moon&color=6e6d7d');
+  --icon-gear: url('https://s2.svgbox.net/octicons.svg?ic=gear&color=000');
+  --icon-help: url('https://s2.svgbox.net/octicons.svg?ic=question-bold&color=000');
+  --icon-arrow-up: url('https://s2.svgbox.net/hero-solid.svg?ic=arrow-up&color=000');
+  --icon-arrow-down: url('https://s2.svgbox.net/hero-solid.svg?ic=arrow-down&color=000');
+  --icon-kebab-horizontal: url('https://s2.svgbox.net/octicons.svg?ic=kebab-horizontal&color=000');
+
+
+}
+
+body[data-theme='dark'] {
+  --image-logo: url('../public/images/logo_d.svg');
+
+  --color-primary: #fff;
+  --color-alternate: #bb78fe;
+  --color-secondary: rgba(9, 13, 20, 0.24);
+  --color-tertiary: #383a3d;
+  --color-bg-primary: rgba(224, 224, 255, 0.12);
+  --color-bg-secondary: #2d2f33;
+
+  --background-image-main: radial-gradient(circle at 50% 0, #2d2f33, #282a2e 36%, #090d14 76%);
+
+  --icon-moon: url('https://s2.svgbox.net/hero-solid.svg?ic=moon&color=BB78FE');
+  --icon-gear: url('https://s2.svgbox.net/octicons.svg?ic=gear&color=fff');
+  --icon-help: url('https://s2.svgbox.net/octicons.svg?ic=question-bold&color=fff');
+  --icon-arrow-up: url('https://s2.svgbox.net/hero-solid.svg?ic=arrow-up&color=fff');
+  --icon-arrow-down: url('https://s2.svgbox.net/hero-solid.svg?ic=arrow-down&color=fff');
+  --icon-kebab-horizontal: url('https://s2.svgbox.net/octicons.svg?ic=kebab-horizontal&color=fff');
+
+}
+
+.image-logo {
+  content: var(--image-logo);
+  transition: content 0.3s ease-in-out;
+}
+
+.color-primary{
+  color: var(--color-primary);
+}
+.color-alternate{
+  color: var(--color-alternate);
+}
+
+.icon-moon {
+  content: var(--icon-moon);
+  transition: content 0.3s ease-in-out;
+}
+
+.icon-gear {
+  content: var(--icon-gear);
+  transition: content 0.3s ease-in-out;
+}
+.icon-help {
+  content: var(--icon-help);
+  transition: content 0.3s ease-in-out;
+}
+.icon-arrow-up {
+  content: var(--icon-arrow-up);
+  animation-name: spin;
+  -webkit-animation-name: spin;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  -ms-transition: -ms-transform .8s ease-in-out;
+  transition: transform .2s ease-in-out;  
+}
+.icon-arrow-down {
+  position: relative;
+  content: var(--icon-arrow-down);
+  animation-name: spin;
+  -webkit-animation-name: spin;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  -ms-transition: -ms-transform .8s ease-in-out;
+  transition: transform .2s ease-in-out;  
+}
+
+@keyframes spin {
+  from { -moz-transform: rotate(90deg); }
+  to { -moz-transform: rotate(0deg); }
+}
+
+.icon-kebab-horizontal {
+  content: var(--icon-kebab-horizontal);
+  transition: content 0.3s ease-in-out;
+}
+
+.common-card{
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-secondary);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+.vh-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

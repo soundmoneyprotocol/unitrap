@@ -1,0 +1,12 @@
+.layout{
+    width: 100vw;
+    max-height: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    /* opacity: 0.6; */
+    background-image: var(--background-image-main);
+    transition: background-image-main 0.3s ease-in-out;
+}   

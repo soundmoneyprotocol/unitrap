@@ -1,0 +1,22 @@
+.SearchInput{
+    background-image: url('/images/search.svg');
+    position: relative;
+    display: flex;
+    padding: 16px 16px 16px 40px;
+    height: 40px;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    outline: none;
+    border-radius: 12px;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    appearance: none;
+    font-weight: 485;
+    font-size: 16px;
+    transition: border 100ms;
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 20px;
+    background-color: var(--color-bg-secondary);;
+}
