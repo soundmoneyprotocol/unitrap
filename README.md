@@ -1,13 +1,77 @@
-![Free_Sample_By_Wix(2)](https://user-images.githubusercontent.com/59489905/227745631-efbdde0e-99c9-42df-aa04-956690a8538f.jpg)
+# Unitrap - Web3 DEX Interface
 
+A modern, user-friendly decentralized exchange interface built with Next.js and Web3 technologies. Unitrap enables seamless token swapping and DeFi interactions with an intuitive user experience.
 
-ZetaChain Hackathon Project
-This is a simple Hardhat template that provides a starting point for developing smart contract applications on the ZetaChain blockchain. 🔑 Private key: dd3af6af24b0deaae56b500f33db9597bca4cd7a0e13334aeb0a6896b9410683 🔐 Mnemonic phrase: physical choice father divert grass bulb desert smoke split mirror give cause 😃 EVM address: 0xDBB9b2313664C1805C21B6c0E8E5f6FBE4D4cfDA 😃 Bitcoin address: tb1q0u9q8uz6syuvx8hhvtj92mge9azct6a83mxwa0 😃 Bech32 address: zeta1mwumyvfkvnqcqhppkmqw3e0kl0jdfn76pl69vg Begining Balances: EVM: 0xDBB9b2313664C1805C21B6c0E8E5f6FBE4D4cfDA Bitcoin: tb1q0u9q8uz6syuvx8hhvtj92mge9azct6a83mxwa0
+## 🚀 Live Demo
 
-Prerequisites
-## Getting Started
+**Production:** https://unitrap-one.vercel.app
+**Integrated in SoundMoney:** https://soundmoneyprotocol.xyz (Swap menu)
 
-First, run the development server:
+## ✨ Features
+
+- 🔗 **Multi-Chain Wallet Support** - Connect via RainbowKit (MetaMask, WalletConnect, etc.)
+- 💱 **Token Swapping** - Swap between supported tokens with real-time pricing
+- 💰 **Balance Management** - View and manage token balances across chains
+- 🎨 **Modern UI** - Clean, responsive design with theme support
+- ⚡ **Real-Time Quotes** - Live swap quotes and slippage protection
+- 📱 **Mobile Optimized** - Fully responsive interface
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js 13, React 18, JavaScript
+- **Web3:** wagmi, viem, ethers, RainbowKit
+- **Styling:** Bootstrap, CSS Modules
+- **UI Components:** Headless UI, React Icons
+- **State Management:** React Query, React Redux
+
+## 📋 Supported Chains
+
+Currently configured for:
+- Ethereum Mainnet
+- Polygon
+- Optimism
+- Arbitrum
+- Merlin Testnet
+
+*Note: Chain support is configurable via `src/Provider/rainbowkitProvider.js`*
+
+## 🤝 Smart Contracts
+
+**Merlin Testnet Contracts:**
+- BTC Token: `0xAAF23F0894f8CaE3051207D82588EcFff9531358`
+- TST Token: `0x6C593A8Eb76a3769b360e8271C701702FE1a6ffD`
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 16+
+- npm or yarn
+- A Web3 wallet (MetaMask, Phantom, etc.)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/soundmoneyprotocol/unitrap.git
+cd unitrap
+
+# Install dependencies
+npm install
+# or
+yarn install
+```
+
+### Environment Setup
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_PROJECT_ID=4d7377d0f1b846a4058e8f547925c996
+```
+
+The `NEXT_PUBLIC_PROJECT_ID` is for WalletConnect integration. Get one at https://cloud.walletconnect.com
+
+### Development Server
 
 ```bash
 npm run dev
@@ -15,44 +79,123 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 📖 Pages
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **`/`** - Main swap interface
+- **`/login`** - Wallet connection
+- **`/buy`** - Token purchasing
+- **`/rewards`** - Rewards dashboard
+- **`/vote`** - Governance voting
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🏗️ Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+unitrap/
+├── pages/              # Next.js pages and routes
+├── src/
+│   ├── Provider/       # Wallet and Web3 providers
+│   ├── component/      # React components
+│   ├── TokenMockData/  # Token configurations
+│   └── styles/         # Global styles
+├── artifacts/          # Smart contract ABIs
+├── public/             # Static assets
+└── package.json
+```
 
-## Tech Stack
+## 🔄 Workflow
 
-NextJS/React/JavaScript, Ethers, Bootstrap, Web3.js, Foundry/Forge Testing
+1. **Connect Wallet** - User connects via RainbowKit
+2. **Select Tokens** - Choose input and output tokens
+3. **Get Quote** - Real-time swap quote is fetched
+4. **Approve Token** - User approves spending (if needed)
+5. **Execute Swap** - Transaction is signed and executed
+6. **Confirmation** - Transaction is confirmed on blockchain
 
-Integrations: 
+## ⚙️ Configuration
 
-Intmax -> webmax.js wallet connectivity, Gnosis Chain (Governance/Governor/TimelockToken), UMAoSnapshot/Zodiac (SAFE/ENS), cryptocreditunionDAO.eth, Push Protocol ,TheGraphql Schemas (UMA-Subgraph), F-EVM -> GasLimit Bug, Scroll (RPC)
+### Add New Chain
 
-In our DataDAO stack, we utilized GraphQL schemas like syntheticDID.graphql, chat.graphql, and Polybase Schemas (chat). To replace the NFTDID subgraph, we used UMA-oSnapshot/Zodiac SAFE and subGraph.
+Edit `src/Provider/rainbowkitProvider.js`:
 
-Our current focus is launching a GovernanceDAO on Gnosis Chain Chaido, with contract addresses for Governor, GovernanceToken, and Timelock. We also implemented a zkWallet for CreditUnion members to sign in with a zkDID and added zkIDWallet, loggedChanged, Wallet Lock, and Wallet Unlock to the Unitrap DApp.
+```javascript
+const myChain = {
+  id: 123,
+  name: "My Chain",
+  nativeCurrency: { name: "Token", symbol: "TOK", decimals: 18 },
+  rpcUrls: {
+    default: { http: ["https://rpc.mychain.io"] },
+  },
+  blockExplorers: {
+    default: { name: "Explorer", url: "https://explorer.mychain.io" },
+  },
+};
 
-Additionally, we integrated Intmax for wallet connectivity with webmax.js and used tools like TheGraph (UMA-Subgraph) and PUSH Protocol for notifications. We also encountered and addressed the GasLimit Bug in F-EVM, and used Scroll (RPC) to deploy the Membership Contract.
+// Add to chains array in getDefaultConfig()
+```
 
-Gnosis Deployed Contracts: Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:03 PM]
-GovernanceToken: 0xBFaCCE3908C737c7D6CEe6d6ec25a73686Bc9325
+### Update Tokens
 
-Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:04 PM]
-Timelock: 0xBE2Dd83494519615C1769434E499f97C00eB4E94
+Edit `src/TokenMockData/index.js` to add new tokens:
 
-Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:04 PM]
-Governor: 0xD51F327906e4637b323E4f116B15A065FF0C65A3
+```javascript
+{
+  name: "Token Name",
+  symbol: "SYMBOL",
+  contractAddress: "0x...",
+  price: 100,
+  decimals: 18,
+}
+```
 
-0xbfacce3908c737c7d6cee6d6ec25a73686bc9325
-0xBE2Dd83494519615C1769434E499f97C00eB4E94
-0xd51f327906e4637b323e4f116b15a065ff0c65a3
+## 📦 Build for Production
 
-Scroll Deployed Contracts: 
-0x63D610f604f52615850da3A8Ff6B316e004F948f
-0x86777D9b8F27B822df90B6c2787a12ccc99B59db
-0x6578C67B97E4F431c07cAb4C91176ECf5125d2d6
+```bash
+npm run build
+npm start
+```
+
+## 🔄 Migration Roadmap
+
+### Planned: Jupiter API Integration (Solana)
+- Migrate to Solana blockchain
+- Integrate Jupiter Aggregator API
+- Support for SOL and SPL tokens
+- Phantom wallet integration
+
+*See `JUPITER_API_MIGRATION.md` for details (coming soon)*
+
+## 🤝 Contributing
+
+1. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Commit changes (`git commit -m 'Add amazing feature'`)
+3. Push to branch (`git push origin feature/amazing-feature`)
+4. Open a Pull Request
+
+## 📝 License
+
+This project is part of the SoundMoney Protocol ecosystem.
+
+## 🔗 Links
+
+- **Website:** https://soundmoneyprotocol.xyz
+- **SocialFi:** https://social.soundmoneyprotocol.xyz
+- **Discord:** https://discord.gg/2WJTD94uZT
+- **Twitter:** https://x.com/soundmoneyxyz
+
+## ⚠️ Security Notice
+
+This is a decentralized finance application. Always:
+- ✅ Verify contract addresses
+- ✅ Check slippage settings before swapping
+- ✅ Use small amounts for testing
+- ✅ Never share private keys or seed phrases
+
+## 📧 Support
+
+For issues, questions, or feature requests, please open a GitHub issue or reach out via our Discord community.
+
+---
+
+**Built for the SoundMoney Protocol** 🎵💰
